@@ -11,6 +11,8 @@ datagroup: jomg_default_datagroup {
   max_cache_age: "1 hour"
 }
 
+# new line test
+
 persist_with: jomg_default_datagroup
 
 explore: aircraft {
