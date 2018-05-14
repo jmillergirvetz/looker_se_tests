@@ -1,17 +1,18 @@
 connection: "flightstats"
 
-# include all the views
-include: "*.view"
+#### update include to only include the base views since model extensions will require base and tenant views
+include: "base.*.view"
 
-# include all the dashboards
-include: "*.dashboard"
+#### remove included dashboards since the base will "require" extension for each tenant
+# # include all the dashboards
+# include: "*.dashboard"
 
 datagroup: jomg_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
 
-# new line test
+# base model
 
 persist_with: jomg_default_datagroup
 

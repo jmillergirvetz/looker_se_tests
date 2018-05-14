@@ -156,4 +156,24 @@ view: aircraft {
     type: count
     drill_fields: [name]
   }
+
+
+  measure: category_count {
+    type: sum
+    sql:
+    CASE
+      WHEN ${tail_num} = {% parameter category_to_count %}
+      THEN 1
+      ELSE 0
+    END
+  ;;
+  }
+
+  filter: category_to_count {
+    type: string
+}
+
+parameter: test {
+  type: string
+}
 }
