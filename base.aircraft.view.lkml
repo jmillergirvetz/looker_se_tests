@@ -1,5 +1,6 @@
 view: aircraft {
-  sql_table_name: public.aircraft ;;
+#   sql_table_name: public.aircraft ;;
+  sql_table_name: {{ _user_attributes['schema_test'] }}.table_name ;;
 
   dimension: address1 {
     type: string
