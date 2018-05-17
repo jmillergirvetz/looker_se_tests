@@ -1,40 +1,40 @@
-view: tenant_hp {
+view: mq_tenant_mq {
   derived_table: {
     sql: SELECT DISTINCT carrier AS airlines
       , 1 AS survey_id
       , TO_DATE('01/01/2018', 'DD/MM/YYYY') AS q_date_type
       , 'check_1' AS q_check_box_type
       , 'drop_down_1' AS q_drop_down
-      , 'HP' AS tenant_id
+      , 'tenant_id_1' AS tenant_id
 FROM flights
-WHERE carrier='HP'
+WHERE carrier='MQ'
 UNION ALL
 SELECT DISTINCT carrier AS airlines
       , 1 AS survey_id
       , TO_DATE('01/02/2018', 'DD/MM/YYYY') AS q_date_type
       , 'check_1' AS q_check_box_type
       , 'drop_down_1' AS q_drop_down
-      , 'HP' AS tenant_id
+      , 'tenant_id_1' AS tenant_id
 FROM flights
-WHERE carrier='HP'
+WHERE carrier='MQ'
 UNION ALL
 SELECT DISTINCT carrier AS airlines
       , 1 AS survey_id
       , TO_DATE('01/03/2018', 'DD/MM/YYYY') AS q_date_type
       , 'check_1' AS q_check_box_type
       , 'drop_down_1' AS q_drop_down
-      , 'HP' AS tenant_id
+      , 'tenant_id_1' AS tenant_id
 FROM flights
-WHERE carrier='HP'
+WHERE carrier='MQ'
 UNION ALL
 SELECT DISTINCT carrier AS airlines
       , 2 AS survey_id
       , TO_DATE('01/01/2018', 'DD/MM/YYYY') AS q_date_type
       , 'check_2' AS q_check_box_type
       , 'drop_down_2' AS q_drop_down
-      , 'HP' AS tenant_id
+      , 'tenant_id_2' AS tenant_id
 FROM flights
-WHERE carrier='HP'
+WHERE carrier='MQ'
 UNION ALL
 SELECT DISTINCT carrier AS airlines
       , 2 AS survey_id
@@ -43,7 +43,7 @@ SELECT DISTINCT carrier AS airlines
       , 'drop_down_2' AS q_drop_down
       , 'tenant_id_2' AS tenant_id
 FROM flights
-WHERE carrier='HP'
+WHERE carrier='MQ'
 UNION ALL
 SELECT DISTINCT carrier AS airlines
       , 2 AS survey_id
@@ -52,7 +52,7 @@ SELECT DISTINCT carrier AS airlines
       , 'drop_down_2' AS q_drop_down
       , 'tenant_id_2' AS tenant_id
 FROM flights
-WHERE carrier='HP'
+WHERE carrier='MQ'
 UNION ALL
 SELECT DISTINCT carrier AS airlines
       , 3 AS survey_id
@@ -61,7 +61,7 @@ SELECT DISTINCT carrier AS airlines
       , 'drop_down_3' AS q_drop_down
       , 'tenant_id_3' AS tenant_id
 FROM flights
-WHERE carrier='HP'
+WHERE carrier='MQ'
 UNION ALL
 SELECT DISTINCT carrier AS airlines
       , 3 AS survey_id
@@ -70,7 +70,7 @@ SELECT DISTINCT carrier AS airlines
       , 'drop_down_3' AS q_drop_down
       , 'tenant_id_3' AS tenant_id
 FROM flights
-WHERE carrier='HP'
+WHERE carrier='MQ'
 UNION ALL
 SELECT DISTINCT carrier AS airlines
       , 3 AS survey_id
@@ -79,20 +79,13 @@ SELECT DISTINCT carrier AS airlines
       , 'drop_down_3' AS q_drop_down
       , 'tenant_id_3' AS tenant_id
 FROM flights
-WHERE carrier='HP'
+WHERE carrier='MQ'
  ;;
   }
 
   measure: count {
     type: count
     drill_fields: [detail*]
-  }
-
-  dimension: prime_key {
-    hidden: yes
-    primary_key: yes
-    type: string
-    sql: ${airlines} || ${survey_id} || ${q_date_type} || ${tenant_id} ;;
   }
 
   dimension: airlines {

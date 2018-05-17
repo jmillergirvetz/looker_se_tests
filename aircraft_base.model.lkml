@@ -7,16 +7,23 @@ include: "base.*.view"
 # # include all the dashboards
 # include: "*.dashboard"
 
+
+#### OPTIONAL - create a default datagroup or require creation/update per tenanat's model
 datagroup: jomg_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
 
-# base model
-
 persist_with: jomg_default_datagroup
 
+#### base model
+
 explore: aircraft {
+
+  access_filter: {
+    field: carriers.code
+    user_attribute: test_airline_code
+  }
 
   join: aircraft_models {
     type: inner
@@ -34,6 +41,12 @@ explore: aircraft {
     type: inner
     relationship: one_to_many
     sql_on: ${flights.origin} = ${airports.code} ;;
+  }
+
+  join: carriers {
+    type: inner
+    relationship: many_to_one
+    sql_on: ${flights.carrier} = ${carriers.code} ;;
   }
 
 }
