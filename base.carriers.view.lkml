@@ -2,6 +2,7 @@ view: carriers {
   sql_table_name: public.carriers ;;
 
   dimension: code {
+    primary_key: yes
     type: string
     sql: ${TABLE}.code ;;
   }
