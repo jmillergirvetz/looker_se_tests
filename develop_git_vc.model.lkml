@@ -1,10 +1,10 @@
-connection: "looker"
+connection: "us_crime"
 
 # include all the views
 include: "*.view"
 
 # include all the dashboards
-include: "*.dashboard"
+# include: "*.dashboard"
 
 datagroup: develop_git_vc_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;

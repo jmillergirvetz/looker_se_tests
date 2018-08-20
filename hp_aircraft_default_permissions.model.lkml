@@ -1,5 +1,5 @@
 #### Connection will remain
-connection: "flightstats"
+# connection: "us_crime"
 
 
 #### REQUIRED - includes base views to build base explore
@@ -7,7 +7,7 @@ include: "base.*.view.lkml"
 
 #### REQUIRED - Update includes to only inlcude views and dashboard
 include: "hp.*.view.lkml"
-include: "hp.*.dashboard.lookml"
+# include: "hp.*.dashboard.lookml"
 
 #### REQUIRED - include base model file
 include: "aircraft_base.model.lkml"

@@ -1,4 +1,4 @@
-connection: "flightstats"
+connection: "us_crime"
 
 #### update include to only include the base views since model extensions will require base and tenant views
 include: "base.*.view"
@@ -20,10 +20,10 @@ persist_with: jomg_default_datagroup
 
 explore: aircraft {
 
-  access_filter: {
-    field: carriers.code
-    user_attribute: test_airline_code
-  }
+#   access_filter: {
+#     field: carriers.code
+#     user_attribute: test_airline_code
+#   }
 
   join: aircraft_models {
     type: inner
