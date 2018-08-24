@@ -1,5 +1,5 @@
 #### Connection will remain
-connection: "flightstats"
+# connection: "flightstats"
 
 
 #### REQUIRED - includes base views to build base explore
@@ -7,7 +7,7 @@ include: "base.*.view.lkml"
 
 #### REQUIRED - Update includes to only inlcude views and dashboard
 include: "hp.*.view.lkml"
-include: "hp.*.dashboard.lookml"
+# include: "hp.*.dashboard.lookml"
 
 #### REQUIRED - include base model file
 include: "aircraft_base.model.lkml"
@@ -36,7 +36,7 @@ explore: aircraft_hp {
   join: tenant_hp {
     type: left_outer
     relationship: many_to_one
-    sql_on: ${carriers.code} = ${tenant_hp.tenant_id} ;;
+    sql_on: ${carriers.code} = ${tenant_hp.tenant_id};;
   }
 
 }
