@@ -109,7 +109,7 @@ looker.plugins.visualizations.add({
       this.addError({
         group: 'measure-req',
         title: 'Incompatible Data',
-        message: 'One measure or one dimension is required'
+        message: 'One measure and one dimension is required'
       });
       return false;
     } else {
