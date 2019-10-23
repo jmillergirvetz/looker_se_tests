@@ -83,6 +83,8 @@ WHERE carrier='MQ'
  ;;
   }
 
+  suggestions: no
+
   measure: count {
     type: count
     drill_fields: [detail*]

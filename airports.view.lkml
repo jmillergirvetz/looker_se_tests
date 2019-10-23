@@ -1,6 +1,5 @@
 view: airports {
   sql_table_name: public.airports ;;
-  suggestions: no
 
   dimension: id {
     primary_key: yes

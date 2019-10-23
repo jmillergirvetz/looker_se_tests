@@ -1,5 +1,6 @@
 view: flights {
   sql_table_name: public.flights ;;
+  suggestions: no
 
   dimension: arr_delay {
     type: number

@@ -82,6 +82,7 @@ FROM flights
 WHERE carrier='HP'
  ;;
   }
+  suggestions: no
 
   measure: count {
     type: count

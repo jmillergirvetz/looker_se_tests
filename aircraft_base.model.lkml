@@ -14,12 +14,20 @@ datagroup: jomg_default_datagroup {
   max_cache_age: "1 hour"
 }
 
-persist_with: jomg_default_datagroup
+datagroup: no_cache {
+  max_cache_age: "0 seconds"
+}
+
+persist_with: no_cache
 
 #### base model
 
+explore: flights {}
+
 explore: aircraft {
 
+# cancel_grouping_fields: [ALL_FIELDS*]
+fields: [ALL_FIELDS*]
   access_filter: {
     field: carriers.code
     user_attribute: test_airline_code

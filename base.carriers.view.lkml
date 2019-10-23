@@ -1,5 +1,6 @@
 view: carriers {
   sql_table_name: public.carriers ;;
+  suggestions: no
 
   dimension: code {
     primary_key: yes

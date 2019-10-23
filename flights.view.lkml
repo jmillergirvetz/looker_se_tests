@@ -1,6 +1,5 @@
-view: flights_by_day {
-  sql_table_name: public.flights_by_day ;;
-  suggestions: no
+view: flights {
+  sql_table_name: public.flights ;;
 
   dimension: arr_delay {
     type: number
@@ -50,21 +49,6 @@ view: flights_by_day {
     sql: ${TABLE}.dep_time ;;
   }
 
-  dimension_group: dept_day {
-    type: time
-    timeframes: [
-      raw,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    convert_tz: no
-    datatype: date
-    sql: ${TABLE}.dept_day ;;
-  }
-
   dimension: destination {
     type: string
     sql: ${TABLE}.destination ;;
@@ -91,7 +75,6 @@ view: flights_by_day {
   }
 
   dimension: id2 {
-    primary_key: yes
     type: number
     sql: ${TABLE}.id2 ;;
   }

@@ -1,5 +1,6 @@
 view: aircraft_models {
   sql_table_name: public.aircraft_models ;;
+  suggestions: no
 
   dimension: aircraft_category_id {
     type: number
