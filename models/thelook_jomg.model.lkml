@@ -4,6 +4,7 @@ include: "/views/*.view.lkml"
 
 
 explore: order_items {
+  label: "JOMG - Order Items"
 
   join: users {
     relationship: many_to_one
