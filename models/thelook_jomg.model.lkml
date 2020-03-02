@@ -1,6 +1,7 @@
 connection: "thelook_events"
 
 include: "/views/*.view.lkml"
+# include: "/*.dashboard.lookml"
 
 
 explore: order_items {
