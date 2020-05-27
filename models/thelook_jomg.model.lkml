@@ -1,6 +1,6 @@
 connection: "thelook_events"
 
-label: "JOMG - Enterprise Workshops"
+label: "JOMG Enterprise Workshops"
 
 include: "/views/*.view.lkml"
 
