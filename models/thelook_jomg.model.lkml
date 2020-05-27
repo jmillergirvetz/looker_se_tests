@@ -32,3 +32,7 @@ explore: order_items {
   }
 
 }
+
+# explore: oi {
+#   extends: [order_items]
+# }

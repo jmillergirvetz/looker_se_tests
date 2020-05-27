@@ -66,6 +66,14 @@ view: order_items {
     sql: ${TABLE}.sale_price ;;
   }
 
+  measure: sum_sale_price {
+    label: "Total Sales Price"
+    type: sum
+#     drill_fields: [detail*]
+    value_format_name: usd_0
+    sql: ${sale_price} ;;
+  }
+
   dimension_group: shipped {
     type: time
     timeframes: [
