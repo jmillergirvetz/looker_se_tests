@@ -4,7 +4,24 @@ label: "JOMG Enterprise Workshops"
 
 include: "/views/*.view.lkml"
 
+datagroup: new_day {
+#   max_cache_age: "24 hours"
+  sql_trigger: SELECT GETDATE() ;;
+}
+
+datagroup: infinite {
+  sql_trigger: SELECT 1 ;;
+}
+
 explore: order_items {
+
+  access_filter: {
+    field: users.id
+    user_attribute: user_id
+  }
+
+  persist_with: new_day
+
   label: "JOMG - Order Items"
 
   join: users {
@@ -32,3 +49,8 @@ explore: order_items {
   }
 
 }
+
+# explore: new {
+#   extends: [order_items]
+#   label: "extended"
+# }

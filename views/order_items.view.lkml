@@ -22,6 +22,30 @@ view: order_items {
     sql: ${TABLE}.created_at ;;
   }
 
+#   dimension: days_from_created {
+#     type: number
+#     sql: DATEDIFF ;;
+#   }
+
+  dimension_group: time_from_created {
+    type: duration
+    intervals: [day, week]
+    sql_start: ${created_raw} ;;
+    sql_end: GETDATE() ;;
+  }
+
+  dimension: is_0_to_30_days {
+    type: yesno
+    sql: ${days_time_from_created} < 31 ;;
+  }
+
+  measure: sum_sales_price_processing {
+    type: sum
+    sql: ${sale_price} ;;
+    filters: [status: "Processing", is_0_to_30_days: "Yes"]
+  }
+
+
   dimension_group: delivered {
     type: time
     timeframes: [
@@ -73,6 +97,23 @@ view: order_items {
     value_format_name: usd_0
     sql: ${sale_price} ;;
   }
+
+#   parameter: test {
+#     type: number
+#     allowed_value: {
+#       label: "Four"
+#       value: "4"
+#     }
+#     allowed_value: {
+#       label: "Three"
+#       value: "3"
+#     }
+#   }
+#
+#   dimension: four_or_three {
+#     type: number
+#     sql: {% parameter test %} ;;
+#   }
 
   dimension_group: shipped {
     type: time

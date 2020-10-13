@@ -13,6 +13,12 @@ view: inventory_items {
     sql: ${TABLE}.cost ;;
   }
 
+  measure: return_price {
+    type: sum
+    value_format_name: usd
+    sql: ${cost} ;;
+  }
+
   dimension_group: created {
     type: time
     timeframes: [
@@ -33,8 +39,20 @@ view: inventory_items {
   }
 
   dimension: product_category {
+    label: "Product Family"
+    view_label: "Prdocut Facts"
+    description: "This is to be used as the breakup for our product hieracrchies"
     type: string
     sql: ${TABLE}.product_category ;;
+    link: {
+      label: "Product Family Dashboard"
+      url: "https://saleseng.dev.looker.com/dashboards-next/957?Product+Family={{value}}"
+      icon_url: "https://www.fitbit.com/content/dam/fitbit/logo/fitbit_logo.svg"
+    }
+    link: {
+      label: "Google Search"
+      url: "https://www.google.com"
+    }
   }
 
   dimension: product_department {
