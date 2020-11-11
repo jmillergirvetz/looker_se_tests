@@ -5,6 +5,5 @@ application: carbon-offset-extension {
     new_window: no
     use_form_submit: yes
     use_embeds: yes
-
   }
 }
