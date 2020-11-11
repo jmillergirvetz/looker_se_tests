@@ -3,6 +3,7 @@ connection: "thelook_events"
 label: "JOMG Enterprise Workshops"
 
 include: "/views/*.view.lkml"
+include: "/dashboards/*.dashboard.lookml"
 
 datagroup: new_day {
 #   max_cache_age: "24 hours"
