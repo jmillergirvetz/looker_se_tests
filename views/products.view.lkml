@@ -16,6 +16,10 @@ view: products {
   dimension: category {
     type: string
     sql: ${TABLE}.category ;;
+    link: {
+      label: "Search YETI"
+      url: "https://www.yeti.com/en_US/search?q={{value}}&lang=en_US"
+    }
   }
 
   dimension: cost {

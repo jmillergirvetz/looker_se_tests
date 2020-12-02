@@ -41,6 +41,7 @@ view: users {
   dimension: email {
     type: string
     sql: ${TABLE}.email ;;
+    tags: ["email"]
   }
 
   dimension: first_name {
@@ -56,6 +57,11 @@ view: users {
   dimension: last_name {
     type: string
     sql: ${TABLE}.last_name ;;
+  }
+
+  dimension: full_name {
+    type: string
+    sql: CONCAT(${first_name}, ${last_name}) ;;
   }
 
   dimension: latitude {
@@ -85,6 +91,6 @@ view: users {
 
   measure: count {
     type: count
-    drill_fields: [id, last_name, first_name, order_items.count]
+    drill_fields: [id, full_name, order_items.count]
   }
 }
