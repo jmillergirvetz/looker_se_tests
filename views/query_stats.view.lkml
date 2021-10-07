@@ -159,6 +159,7 @@ view: query_stats {
 
   dimension: text_fingerprint {
     type: number
+    value_format: "#"
     sql: ${TABLE}.TEXT_FINGERPRINT ;;
   }
 
