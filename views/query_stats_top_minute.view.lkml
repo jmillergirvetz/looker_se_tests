@@ -1,11 +1,6 @@
 view: query_stats_top_minute {
   sql_table_name: SPANNER_SYS.QUERY_STATS_TOP_MINUTE ;;
 
-  measure: count {
-    type: count
-    drill_fields: [detail*]
-  }
-
   dimension: interval_end {
     type: string
     sql: ${TABLE}.INTERVAL_END ;;
@@ -74,24 +69,5 @@ view: query_stats_top_minute {
   dimension: all_failed_avg_latency_seconds {
     type: number
     sql: ${TABLE}.ALL_FAILED_AVG_LATENCY_SECONDS ;;
-  }
-
-  set: detail {
-    fields: [
-      interval_end,
-      text,
-      text_truncated,
-      text_fingerprint,
-      execution_count,
-      avg_latency_seconds,
-      avg_rows,
-      avg_bytes,
-      avg_rows_scanned,
-      avg_cpu_seconds,
-      cancelled_or_disconnected_execution_count,
-      timed_out_execution_count,
-      all_failed_execution_count,
-      all_failed_avg_latency_seconds
-    ]
   }
 }

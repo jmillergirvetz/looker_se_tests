@@ -237,7 +237,7 @@ view: query_stats {
     sql: ${avg_cpu_seconds} ;;
   }
 
-  dimension: cpu_per_query {
+  dimension: cpu {
     type: number
     sql: ${execution_count} * ${avg_cpu_seconds} ;;
   }
@@ -245,7 +245,7 @@ view: query_stats {
   measure: total_cpu {
     type: sum
     value_format_name: decimal_2
-    sql: ${cpu_per_query} ;;
+    sql: ${cpu} ;;
   }
 
   measure: total_cpu_utilization {
@@ -259,9 +259,19 @@ view: query_stats {
     sql: ${TABLE}.CANCELLED_OR_DISCONNECTED_EXECUTION_COUNT ;;
   }
 
+  measure: total_cancelled_or_disconnected_execution_count {
+    type: sum
+    sql: ${cancelled_or_disconnected_execution_count} ;;
+  }
+
   dimension: timed_out_execution_count {
     type: number
     sql: ${TABLE}.TIMED_OUT_EXECUTION_COUNT ;;
+  }
+
+  measure: total_timed_out_execution_count {
+    type: sum
+    sql: ${timed_out_execution_count} ;;
   }
 
   dimension: all_failed_execution_count {
@@ -279,12 +289,17 @@ view: query_stats {
     sql: ${TABLE}.ALL_FAILED_AVG_LATENCY_SECONDS ;;
   }
 
+  measure: total_all_failed_avg_latency_seconds {
+    type: sum
+    sql: ${all_failed_avg_latency_seconds} ;;
+  }
+
   set: detail {
     fields: [
       interval_end_hour_of_day,
+      text_fingerprint,
       query_text_truncated,
       text_truncated,
-      text_fingerprint,
       execution_count,
       avg_latency_seconds,
       avg_rows,
