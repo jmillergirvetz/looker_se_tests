@@ -21,4 +21,4 @@ include: "/**/*.view.lkml"                 # include all views in this project
 
 # adding another comment for test
 
-explore: test {}
+# explore: test {}
